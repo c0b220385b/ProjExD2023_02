@@ -77,13 +77,14 @@ def main():
             kk_rct.move_ip(-sum_mv[0], -sum_mv[1])
         screen.blit(bg_img, [0, 0])
         screen.blit(kk_img, kk_rct)
-        avx, avy = vx*accs[min(tmr//500, 9)], vy*accs[min(tmr//500, 9)]
+
+        avx, avy = vx*accs[min(tmr//500, 9)], vy*accs[min(tmr//500, 9)] #演習課題2
         bd_img = bd_imgs[min(tmr//500, 9)]
-        bd_rct.width = bd_img.get_rect().width
-        bd_rct.height = bd_img.get_rect().height
-        bd_rct.move_ip(avx, avy) #練習2
+        bd_rct.width = bd_img.get_rect().width #ボールの横の範囲を変更
+        bd_rct.height = bd_img.get_rect().height #ボールの縦の範囲を変更
+        bd_rct.move_ip(avx, avy)
         yoko, tate = check_bound(bd_rct)
-        print(bd_rct)
+        #print(bd_rct)
         #print(bd_rct, yoko, tate)
         if not yoko:  # 横方向に画面外だったら
             vx *= -1
